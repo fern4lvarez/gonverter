@@ -1,4 +1,4 @@
-# gonverter [![Build Status](https://travis-ci.org/fern4lvarez/gonverter.png)](https://travis-ci.org/fern4lvarez/gonbverter) [Documentation online](http://godoc.org/github.com/fern4lvarez/gonverter)
+# gonverter [![Build Status](https://travis-ci.org/fern4lvarez/gonverter.png)](https://travis-ci.org/fern4lvarez/gonverter) [Documentation online](http://godoc.org/github.com/fern4lvarez/gonverter)
 =====
 Easy, straightforward type conversion for Go.
 
@@ -15,46 +15,39 @@ go get github.com/fern4lvarez/gonverter
 package main
 
 import (
-  "fmt"
-  gnv "github.com/fern4lvarez/gonverter"
+    "fmt"
+    gnv "github.com/fern4lvarez/gonverter"
 )
 
 func main() {
-  var i, n, res int
-  var s string
-  var b bool
+    var i, n int
+    var s string
+    var b bool
 
-  i = gnv.StoI("38")
-  // i = 38
+    i = gnv.StoI("39")
+    // i = 39
 
-  n = i + 3
-  // n = 41
+    n = i + 3
+    // n = 42
 
-  s = gnv.ItoS(n)
-  if s == "42" {
-    b = gnv.StoB(s)
-    // b is true
-
-    i = gnv.BtoI(b)
-    // i is 1
-
-    res = n + i
-    // res is 42
-
-    b = gnv.ItoB(res)
-    if b // true {
-      fmt.Printf("It's %s, the answer is %s.", gnv.BtoS(b), gnv.ItoS(res))
+    s = gnv.ItoS(n)
+    if s == "42" {
+        b = gnv.StoB(s)
+        i = gnv.BtoI(b)
+        res := n + i
+        b = gnv.ItoB(res)
+        if b {
+            fmt.Printf("It's %s, result is %s", gnv.BtoS(b), gnv.ItoS(res))
+        }
     }
-  }
-
 }
+
 ```
 
 ```
 $ go run gonversions.go
 It's true, the answer is 42.
-
 ```
 
-###License
+##License
 gonverter is MIT licensed, see [here](https://github.com/fern4lvarez/gonverter/blob/master/LICENSE)
