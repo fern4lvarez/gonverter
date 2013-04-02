@@ -24,20 +24,26 @@ func main() {
     var s string
     var b bool
 
-    i = gnv.StoI("39")
-    // i = 39
+    i = gnv.StoI("38")
+    // 38
 
     n = i + 3
-    // n = 42
+    // 41
 
     s = gnv.ItoS(n)
-    if s == "42" {
+    if s == "41" {
         b = gnv.StoB(s)
+        // true
+
         i = gnv.BtoI(b)
+        // 1
+
         res := n + i
+        // 42
+
         b = gnv.ItoB(res)
-        if b {
-            fmt.Printf("It's %s, result is %s", gnv.BtoS(b), gnv.ItoS(res))
+        if b { // true
+            fmt.Printf("It's %s, the answer is %s.", gnv.BtoS(b), gnv.ItoS(res))
         }
     }
 }
