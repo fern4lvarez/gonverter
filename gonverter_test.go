@@ -10,25 +10,9 @@ func TestItoS(t *testing.T) {
 }
 
 // Test string to int conversion
-func TestStoIE(t *testing.T) {
-	msg := "StoI function didn't work as expected"
-	// OK
-	i, err := StoIE("42")
-	if i != 42 || err != nil {
-		t.Error(msg)
-	}
-	// Wrong
-	i, err = StoIE("44abs")
-	if err == nil || i == 44 {
-		t.Error(msg)
-	}
-}
-
-// Test string to int conversion
 func TestStoI(t *testing.T) {
-	i1 := StoI("42")
-	i2, _ := StoIE("42")
-	if i1 != i2 {
+	i := StoI("42")
+	if i != 42 {
 		t.Error("StoI function didn't work as expected")
 	}
 }
