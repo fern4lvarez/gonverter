@@ -36,9 +36,7 @@ TODO:
 
 	´complex64´ -> C
 	´complex128´ -> C128
-
 */
-
 package gonverter
 
 import (
