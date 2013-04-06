@@ -2,53 +2,87 @@ package gonverter
 
 import "testing"
 
+var msgFail = "%s function fails. Expects %s, returns %s."
+
 // Test int to string conversion
 func TestItoS(t *testing.T) {
-	if ItoS(42) != "42" {
-		t.Error("ItoS function didn't work as expected")
+	if s := ItoS(42); s != "42" {
+		t.Errorf(msgFail, "ItoS", "42", s)
+	}
+
+	if s := ItoS(-5); s != "-5" {
+		t.Errorf(msgFail, "ItoS", "-5", s)
 	}
 }
 
 // Test string to int conversion
 func TestStoI(t *testing.T) {
-	i := StoI("42")
+	var i int
+	i = StoI("42")
 	if i != 42 {
-		t.Error("StoI function didn't work as expected")
+		t.Errorf(msgFail, "StoI", ItoS(42), ItoS(i))
+	}
+
+	i = StoI("foo")
+	if i != 0 {
+		t.Errorf(msgFail, "StoI", ItoS(0), ItoS(i))
 	}
 }
 
 // Test int to bool conversion
 func TestItoB(t *testing.T) {
-	b1 := ItoB(42)
-	b2 := ItoB(0)
-	if !b1 || b2 {
-		t.Error("ItoB function didn't work as expected")
+	var b bool
+	b = ItoB(42)
+	if !b {
+		t.Errorf(msgFail, "ItoB", "true", BtoS(b))
+	}
+
+	b = ItoB(0)
+	if b {
+		t.Errorf(msgFail, "ItoB", "false", BtoS(b))
 	}
 }
 
 //Test bool to int conversion
 func TestBtoI(t *testing.T) {
-	i1 := BtoI(true)
-	i2 := BtoI(false)
-	if i1 != 1 || i2 != 0 {
-		t.Error("BtoI function didn't work as expected")
+	var i int
+	i = BtoI(true)
+	if i != 1 {
+		t.Errorf(msgFail, "BtoI", "1", ItoS(i))
+	}
+
+	i = BtoI(false)
+	if i != 0 {
+		t.Errorf(msgFail, "BtoI", "0", ItoS(i))
 	}
 }
 
 // Test string to bool conversion
 func TestStoB(t *testing.T) {
-	s1 := StoB("Hello")
-	s2 := StoB("")
-	if !s1 || s2 {
-		t.Error("StoB function didn't work as expected")
+	var b bool
+	b = StoB("Hello")
+	if !b {
+		t.Errorf(msgFail, "StoB", "false", BtoS(b))
 	}
+
+	b = StoB("")
+	if b {
+		t.Errorf(msgFail, "StoB", "false", BtoS(b))
+	}
+
 }
 
 //Test bool to string conversion
 func TestBtoS(t *testing.T) {
-	s1 := BtoS(true)
-	s2 := BtoS(false)
-	if s1 != "true" || s2 != "false" {
-		t.Error("BtoS function didn't work as expected")
+	var s string
+	s = BtoS(true)
+	if s != "true" {
+		t.Errorf(msgFail, "BtoS", "true", s)
 	}
+
+	s = BtoS(false)
+	if s != "false" {
+		t.Errorf(msgFail, "BtoS", "false", s)
+	}
+
 }
