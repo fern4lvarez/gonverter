@@ -6,11 +6,12 @@ var msgFail = "%s function fails. Expects %s, returns %s."
 
 // Test int to string conversion
 func TestItoS(t *testing.T) {
-	if s := ItoS(42); s != "42" {
+	var s string
+	if s = ItoS(42); s != "42" {
 		t.Errorf(msgFail, "ItoS", "42", s)
 	}
 
-	if s := ItoS(-5); s != "-5" {
+	if s = ItoS(-5); s != "-5" {
 		t.Errorf(msgFail, "ItoS", "-5", s)
 	}
 }
@@ -18,13 +19,11 @@ func TestItoS(t *testing.T) {
 // Test string to int conversion
 func TestStoI(t *testing.T) {
 	var i int
-	i = StoI("42")
-	if i != 42 {
+	if i = StoI("42"); i != 42 {
 		t.Errorf(msgFail, "StoI", ItoS(42), ItoS(i))
 	}
 
-	i = StoI("foo")
-	if i != 0 {
+	if i = StoI("foo"); i != 0 {
 		t.Errorf(msgFail, "StoI", ItoS(0), ItoS(i))
 	}
 }
@@ -32,13 +31,11 @@ func TestStoI(t *testing.T) {
 // Test int to bool conversion
 func TestItoB(t *testing.T) {
 	var b bool
-	b = ItoB(42)
-	if !b {
+	if b = ItoB(42); !b {
 		t.Errorf(msgFail, "ItoB", "true", BtoS(b))
 	}
 
-	b = ItoB(0)
-	if b {
+	if b = ItoB(0); b {
 		t.Errorf(msgFail, "ItoB", "false", BtoS(b))
 	}
 }
@@ -46,13 +43,11 @@ func TestItoB(t *testing.T) {
 //Test bool to int conversion
 func TestBtoI(t *testing.T) {
 	var i int
-	i = BtoI(true)
-	if i != 1 {
+	if i = BtoI(true); i != 1 {
 		t.Errorf(msgFail, "BtoI", "1", ItoS(i))
 	}
 
-	i = BtoI(false)
-	if i != 0 {
+	if i = BtoI(false); i != 0 {
 		t.Errorf(msgFail, "BtoI", "0", ItoS(i))
 	}
 }
@@ -60,29 +55,23 @@ func TestBtoI(t *testing.T) {
 // Test string to bool conversion
 func TestStoB(t *testing.T) {
 	var b bool
-	b = StoB("Hello")
-	if !b {
+	if b = StoB("Hello"); !b {
 		t.Errorf(msgFail, "StoB", "false", BtoS(b))
 	}
 
-	b = StoB("")
-	if b {
+	if b = StoB(""); b {
 		t.Errorf(msgFail, "StoB", "false", BtoS(b))
 	}
-
 }
 
 //Test bool to string conversion
 func TestBtoS(t *testing.T) {
 	var s string
-	s = BtoS(true)
-	if s != "true" {
+	if s = BtoS(true); s != "true" {
 		t.Errorf(msgFail, "BtoS", "true", s)
 	}
 
-	s = BtoS(false)
-	if s != "false" {
+	if s = BtoS(false); s != "false" {
 		t.Errorf(msgFail, "BtoS", "false", s)
 	}
-
 }

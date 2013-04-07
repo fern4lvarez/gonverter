@@ -24,7 +24,7 @@ TODO:
 
 	´uint´ -> U
 	´uint8´ -> U8
-	´byte´ -> B // alias for uint8
+	´byte´ -> BY // alias for uint8
 	´uint16´ -> U16
 	´uint32´ -> U32
 	´rune´ -> R // alias for int32
